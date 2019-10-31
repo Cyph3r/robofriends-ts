@@ -1,6 +1,6 @@
 {
-    "name": "robofriends",
-    "homepage": "http://cyph3r.github.io/robofriends",
+    "name": "robofriends-redux",
+    "homepage": "http://cyph3r.github.io/robofriends-redux",
     "version": "0.1.0",
     "private": true,
     "dependencies": {

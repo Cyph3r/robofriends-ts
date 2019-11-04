@@ -7,6 +7,7 @@ import CardList from "../components/CardList";
 import ErrorBoundary from "../components/ErrorBoundary";
 
 //import { robots } from "./robots";
+// TODO: Add redux state
 
 class App extends Component {
     constructor() {

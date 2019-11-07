@@ -7,7 +7,6 @@ import CardList from "../components/CardList";
 import ErrorBoundary from "../components/ErrorBoundary";
 
 //import { robots } from "./robots";
-// TODO: Add redux state
 // TODO: Convert project state to redux.
 
 class App extends Component {

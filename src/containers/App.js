@@ -8,8 +8,7 @@ import CardList from "../components/CardList";
 import ErrorBoundary from "../components/ErrorBoundary";
 
 import { setSearchField } from "../actions";
-//import { robots } from "./robots";
-// TODO: Convert project state to redux.
+//import { robots } from "./robots"; // No longer used - this was for file data import previously.
 
 const mapStateToProps = state => {
     return {

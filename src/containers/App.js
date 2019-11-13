@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 //import logo from './logo.svg';
 import "./App.css";
 import SearchBox from "../components/SearchBox";
@@ -6,15 +7,26 @@ import Scroll from "../components/Scroll";
 import CardList from "../components/CardList";
 import ErrorBoundary from "../components/ErrorBoundary";
 
+import { setSearchField } from "../actions";
 //import { robots } from "./robots";
 // TODO: Convert project state to redux.
 
+const mapStateToProps = state => {
+    return {
+        searchField: state.searchField
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSearchChange: event => dispatch(setSearchField(event.target.value))
+    };
+};
 class App extends Component {
     constructor() {
         super();
         this.state = {
-            robots: [],
-            searchField: ""
+            robots: []
         };
     }
 
@@ -24,12 +36,9 @@ class App extends Component {
             .then(users => this.setState({ robots: users }));
     }
 
-    onSearchChange = event => {
-        this.setState({ searchField: event.target.value });
-    };
-
     render() {
-        const { robots, searchField } = this.state;
+        const { robots } = this.state;
+        const { searchField, onSearchChange } = this.props;
 
         const filteredRobots = robots.filter(robot => {
             return robot.name.toLowerCase().includes(searchField.toLowerCase());
@@ -41,7 +50,7 @@ class App extends Component {
         return (
             <div className="tc">
                 <h1>RoboFriends</h1>
-                <SearchBox searchChange={this.onSearchChange} />
+                <SearchBox searchChange={onSearchChange} />
                 {
                     //<Scroll>
                 }
@@ -56,4 +65,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

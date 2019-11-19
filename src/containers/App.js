@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-//import logo from './logo.svg';
 import "./App.css";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
@@ -56,4 +55,3 @@ class App extends Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-

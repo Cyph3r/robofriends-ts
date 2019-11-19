@@ -7,61 +7,49 @@ import Scroll from "../components/Scroll";
 import CardList from "../components/CardList";
 import ErrorBoundary from "../components/ErrorBoundary";
 
-import { setSearchField } from "../actions";
+import { setSearchField, requestRobots } from "../actions";
 //import { robots } from "./robots"; // No longer used - this was for file data import previously.
+// TODO: implement redux state
 
 const mapStateToProps = state => {
     return {
         searchField: state.searchRobots.searchField,
         robots: state.requestRobots.robots,
         isPending: state.requestRobots.isPending,
-        errror: state.requestRobots.error
+        error: state.requestRobots.error
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSearchChange: event => dispatch(setSearchField(event.target.value))
+        onSearchChange: event => dispatch(setSearchField(event.target.value)),
+        onRequestRobots: () => dispatch(requestRobots())
     };
 };
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            robots: []
-        };
-    }
-
     componentDidMount() {
-        fetch("https://jsonplaceholder.typicode.com/users")
-            .then(response => response.json())
-            .then(users => this.setState({ robots: users }));
+        this.props.onRequestRobots();
     }
 
     render() {
-        const { robots } = this.state;
-        const { searchField, onSearchChange } = this.props;
+        const { searchField, onSearchChange, robots, isPending } = this.props;
 
         const filteredRobots = robots.filter(robot => {
             return robot.name.toLowerCase().includes(searchField.toLowerCase());
         });
 
-        if (!robots.length) {
+        if (isPending) {
             return <h3>Loading...</h3>;
         }
         return (
             <div className="tc">
-                <h1>RoboFriends</h1>
+                <h1 className="title f-subheadline">RoboFriends</h1>
                 <SearchBox searchChange={onSearchChange} />
-                {
-                    //<Scroll>
-                }
-                <ErrorBoundary>
-                    <CardList robots={filteredRobots} />
-                </ErrorBoundary>
-                {
-                    //</Scroll>
-                }
+                <Scroll>
+                    <ErrorBoundary>
+                        <CardList robots={filteredRobots} />
+                    </ErrorBoundary>
+                </Scroll>
             </div>
         );
     }

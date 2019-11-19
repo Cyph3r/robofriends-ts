@@ -39,10 +39,13 @@ body {
     src: local("SEGA LOGO FONT"), url("../SEGA.woff") format("woff");
 }
 
-h1 {
+h1.title {
     font-family: "SEGA LOGO FONT";
     font-size: 5em;
     font-weight: 200;
     color: #43a6e7;
-    text-shadow: 2px 2px #2f2f2f;
+    border: 1px white;
+    text-transform: uppercase;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white,
+        5px 5px 5px #2f2f2f;
 }

@@ -1,32 +1,32 @@
 .card {
-    background: linear-gradient(
-        to left,
-        rgb(5, 178, 184) 0%,
-        rgb(0, 127, 177) 100%
-    );
-    border: 3px solid #0e4858;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(
+    to left,
+    rgb(5, 178, 184) 0%,
+    rgb(0, 127, 177) 100%
+  );
+  border: 3px solid #0e4858;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .card:hover {
-    border: 3px solid #26acd1;
-    cursor: pointer;
+  border: 3px solid #26acd1;
+  cursor: pointer;
 }
 
 h2,
 p {
-    color: #f0f0f0;
+  color: #f0f0f0;
 }
 
 h2 {
-    text-shadow: 2px 2px 2px #4d4d4d;
+  text-shadow: 2px 2px 2px #4d4d4d;
 }
 
 hr {
-    width: 50%;
-    background-color: #074179;
-    border-width: 0;
-    /*change your size in this place*/
-    padding-top: 1px;
+  width: 50%;
+  background-color: #074179;
+  border-width: 0;
+  /*change your size in this place*/
+  padding-top: 1px;
 }

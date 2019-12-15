@@ -14,17 +14,17 @@ const logger = createLogger();
 const rootReducer = combineReducers({ searchRobots, requestRobots });
 
 const store = createStore(
-    rootReducer,
-    applyMiddleware(thunkMiddleware, logger)
+  rootReducer,
+  applyMiddleware(thunkMiddleware, logger)
 );
 
 ReactDOM.render(
-    <div>
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </div>,
-    document.getElementById("root")
+  <div>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </div>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

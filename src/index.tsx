@@ -10,6 +10,7 @@ import * as serviceWorker from "./serviceWorker";
 import { searchRobots, requestRobots } from "./reducers";
 import "tachyons";
 
+// Test
 const logger = createLogger();
 const rootReducer = combineReducers({ searchRobots, requestRobots });
 
